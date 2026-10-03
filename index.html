@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الإشراف والتأهيل التربوي — البرنامج الأسبوعي</title>
+<meta name="description" content="البرنامج الأسبوعي للمشرف التربوي — مديرية التربية والتعليم يطا">
+<meta property="og:title" content="الإشراف والتأهيل التربوي — البرنامج الأسبوعي" />
+<meta property="og:description" content="البرنامج الأسبوعي للمشرف التربوي — مديرية التربية والتعليم يطا" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#1B2A4A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="الإشراف والتأهيل">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="topbar">
+<header class="app-header">
+  <div class="hdr-1">مديرية التربية والتعليم يطا</div>
+  <div class="hdr-2">قسم الإشراف والتأهيل التربوي</div>
+  <div class="hdr-3">البرنامج الأسبوعي</div>
+</header>
+
+<div id="status" class="status-strip" role="status" aria-live="polite"></div>
+</div>
+
+<main class="container">
+  <section class="card">
+    <h2 class="section-title" id="sup-title">المشرف التربوي</h2>
+    <button class="field" id="sup-field" type="button">
+      <span class="field-value is-placeholder" id="sup-value">اسم المشرف</span>
+      <span class="field-icon" aria-hidden="true">🔍</span>
+    </button>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">📋 البرنامج الأسبوعي للمشرف</h2>
+    <div class="period-row">
+      <span class="period-title">البرنامج الاسبوعي للفترة</span>
+      <span class="period-value" id="period-value">...</span>
+    </div>
+
+    <div id="days"></div>
+
+    <h2 class="section-title sm">📝 ملاحظات البرنامج</h2>
+    <div class="notes-wrap">
+      <textarea id="notes" rows="4" aria-label="الملاحظات"></textarea>
+      <span class="notes-hint" id="notes-hint">الملاحظات على البرنامج الاسبوعي</span>
+    </div>
+
+    <p class="code-guide">ادخل الكود الخاص بك للتطبيق</p>
+    <input class="code-input" id="code" type="text" placeholder="الكود"
+           autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="الكود">
+  </section>
+
+  <section class="card">
+    <h2 class="section-title sm">🎯 نوع البرنامج</h2>
+    <div class="select-wrap">
+      <select id="type" aria-label="نوع البرنامج">
+        <option value="نوع البرنامج">نوع البرنامج</option>
+        <option value="تخطيط">تخطيط</option>
+        <option value="فعلي">فعلي</option>
+      </select>
+      <span class="select-chevron" aria-hidden="true">▾</span>
+    </div>
+
+    <div class="actions-row">
+      <button class="btn-accent" id="btn-search" type="button">🔍 بحث</button>
+      <button class="btn-icon" id="btn-refresh" type="button" aria-label="تحديث">⟳</button>
+      <button class="btn-icon" id="btn-share" type="button" aria-label="مشاركة">⤴</button>
+    </div>
+
+    <button class="btn-primary" id="btn-save" type="button">✓ حفظ البرنامج</button>
+
+    <div id="results" class="results"></div>
+  </section>
+</main>
+
+<div class="sheet hidden" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="sheet-backdrop" id="sheet-backdrop"></div>
+  <div class="sheet-panel">
+    <div class="sheet-head">
+      <span id="sheet-title"></span>
+      <button type="button" class="sheet-close" id="sheet-close" aria-label="إغلاق">✕</button>
+    </div>
+    <input type="search" id="sheet-search" class="sheet-search" placeholder="🔍 بحث"
+           autocomplete="off" spellcheck="false">
+    <ul class="sheet-list" id="sheet-list"></ul>
+  </div>
+</div>
+
+<div class="alert-layer hidden" id="alert-layer" role="alertdialog" aria-modal="true">
+  <div class="alert-card">
+    <p id="alert-msg"></p>
+    <button type="button" id="alert-ok">موافق</button>
+  </div>
+</div>
+
+<div class="install-hint hidden" id="install-hint">
+  <span id="install-hint-text"></span>
+  <button type="button" id="install-hint-btn" class="hidden">تثبيت</button>
+  <button type="button" id="install-hint-close" aria-label="إغلاق">✕</button>
+</div>
+
+<div class="loading hidden" id="loading" aria-hidden="true">
+  <div class="spinner"></div>
+</div>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>
